@@ -9,15 +9,16 @@ import UIKit
 
 class LoginController: UIViewController {
     
+    //MARK: - Private properties
     
-    var scrollView = UIScrollView()
-    var netImageView = UIImageView()
-    var netLabel = UILabel()
-    var loginLabel = UILabel()
-    var loginTextField = UITextField()
-    var passwordLabel = UILabel()
-    var passwordTextField = UITextField()
-    var loginButton = UIButton()
+    private var scrollView = UIScrollView()
+    private var netImageView = UIImageView()
+    private var netLabel = UILabel()
+    private var loginLabel = UILabel()
+    private var loginTextField = UITextField()
+    private var passwordLabel = UILabel()
+    private var passwordTextField = UITextField()
+    private var loginButton = UIButton()
     
     //MARK: -  Lyfe cycle
     
@@ -203,11 +204,12 @@ class LoginController: UIViewController {
             print("no login/password data")
             return
         }
-        transitionToNextViewController()
         //checkLoginPassword(login, password) ? transitionToNextViewController() : showAlertController()
+        transitionToNextViewController()
     }
     
     // MARK: - Private functions
+    
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         setupConstraints()
         setupScrollContetntView()

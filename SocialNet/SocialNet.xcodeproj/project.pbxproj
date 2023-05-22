@@ -18,6 +18,9 @@
 		9914B39529E8404500E03F81 /* MyGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9914B39429E8404500E03F81 /* MyGroupsController.swift */; };
 		9914B39729E840D200E03F81 /* AllGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9914B39629E840D200E03F81 /* AllGroupsController.swift */; };
 		997BB19929F53D9600A3563C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BB19829F53D9600A3563C /* LoginController.swift */; };
+		9995C5A42A1A579300D5849E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995C5A22A1A579200D5849E /* CustomTableViewCell.swift */; };
+		9995C5A52A1A579300D5849E /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9995C5A32A1A579300D5849E /* CustomTableViewCell.xib */; };
+		99ECC8EC2A1BDB5F0032C32B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8EB2A1BDB5F0032C32B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		9914B39429E8404500E03F81 /* MyGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsController.swift; sourceTree = "<group>"; };
 		9914B39629E840D200E03F81 /* AllGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsController.swift; sourceTree = "<group>"; };
 		997BB19829F53D9600A3563C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		9995C5A22A1A579200D5849E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		9995C5A32A1A579300D5849E /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		99ECC8EB2A1BDB5F0032C32B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,8 @@
 			children = (
 				9914B39829E8417300E03F81 /* Core */,
 				9914B39929E8418400E03F81 /* ViewControllers */,
+				9995C5A72A1A57B800D5849E /* CustomTableViewCell */,
+				99ECC8EB2A1BDB5F0032C32B /* Constants.swift */,
 				9914B37F29E83F7100E03F81 /* Main.storyboard */,
 				9914B38529E83F7300E03F81 /* Assets.xcassets */,
 				9914B38729E83F7300E03F81 /* LaunchScreen.storyboard */,
@@ -96,6 +104,15 @@
 				9914B39629E840D200E03F81 /* AllGroupsController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9995C5A72A1A57B800D5849E /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9995C5A22A1A579200D5849E /* CustomTableViewCell.swift */,
+				9995C5A32A1A579300D5849E /* CustomTableViewCell.xib */,
+			);
+			path = CustomTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +175,7 @@
 			files = (
 				9914B38929E83F7300E03F81 /* LaunchScreen.storyboard in Resources */,
 				9914B38629E83F7300E03F81 /* Assets.xcassets in Resources */,
+				9995C5A52A1A579300D5849E /* CustomTableViewCell.xib in Resources */,
 				9914B38129E83F7100E03F81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,10 +187,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9995C5A42A1A579300D5849E /* CustomTableViewCell.swift in Sources */,
 				9914B39729E840D200E03F81 /* AllGroupsController.swift in Sources */,
 				9914B39329E8402400E03F81 /* GalleryController.swift in Sources */,
 				9914B39529E8404500E03F81 /* MyGroupsController.swift in Sources */,
 				9914B38429E83F7100E03F81 /* SocialNet.xcdatamodeld in Sources */,
+				99ECC8EC2A1BDB5F0032C32B /* Constants.swift in Sources */,
 				9914B39129E8400100E03F81 /* MyFriendsController.swift in Sources */,
 				997BB19929F53D9600A3563C /* LoginController.swift in Sources */,
 				9914B37A29E83F7100E03F81 /* AppDelegate.swift in Sources */,
