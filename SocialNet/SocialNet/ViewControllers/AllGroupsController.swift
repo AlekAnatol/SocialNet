@@ -74,6 +74,7 @@ extension AllGroupsController: UITableViewDataSource {
 extension AllGroupsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell else { return }
-        print(cell.nameLabel.text ?? "no name")
+        print("Start to add " + (cell.nameLabel.text ?? "no name"))
+        NotificationCenter.default.post(name: addGroupFromAllGroupsNotification, object: allGroupsArray[indexPath.row])
     }
 }
