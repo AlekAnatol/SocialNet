@@ -21,6 +21,7 @@
 		9995C5A42A1A579300D5849E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995C5A22A1A579200D5849E /* CustomTableViewCell.swift */; };
 		9995C5A52A1A579300D5849E /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9995C5A32A1A579300D5849E /* CustomTableViewCell.xib */; };
 		99ECC8EC2A1BDB5F0032C32B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8EB2A1BDB5F0032C32B /* Constants.swift */; };
+		99ECC8EE2A267CAB0032C32B /* StorageSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		9995C5A22A1A579200D5849E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		9995C5A32A1A579300D5849E /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		99ECC8EB2A1BDB5F0032C32B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSingleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				9914B39929E8418400E03F81 /* ViewControllers */,
 				9995C5A72A1A57B800D5849E /* CustomTableViewCell */,
 				99ECC8EB2A1BDB5F0032C32B /* Constants.swift */,
+				99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */,
 				9914B37F29E83F7100E03F81 /* Main.storyboard */,
 				9914B38529E83F7300E03F81 /* Assets.xcassets */,
 				9914B38729E83F7300E03F81 /* LaunchScreen.storyboard */,
@@ -192,6 +195,7 @@
 				9914B39329E8402400E03F81 /* GalleryController.swift in Sources */,
 				9914B39529E8404500E03F81 /* MyGroupsController.swift in Sources */,
 				9914B38429E83F7100E03F81 /* SocialNet.xcdatamodeld in Sources */,
+				99ECC8EE2A267CAB0032C32B /* StorageSingleton.swift in Sources */,
 				99ECC8EC2A1BDB5F0032C32B /* Constants.swift in Sources */,
 				9914B39129E8400100E03F81 /* MyFriendsController.swift in Sources */,
 				997BB19929F53D9600A3563C /* LoginController.swift in Sources */,

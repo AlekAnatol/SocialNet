@@ -13,7 +13,6 @@ class MyGroupsController: UIViewController {
     
     private var myGroupsTableView = UITableView()
     private var addButton = UIBarButtonItem()
-    private var myGroupsArray: [String] = []
 
     //MARK: -  Lyfe cycle
     
@@ -21,6 +20,11 @@ class MyGroupsController: UIViewController {
         super.viewDidLoad()
         self.title = "My Groups"
         setUpView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        myGroupsTableView.reloadData()
     }
     
     //MARK: - UI - setup
@@ -69,12 +73,14 @@ class MyGroupsController: UIViewController {
 
 extension MyGroupsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myGroupsArray.count
+        return StorageSingleton.share.myGroupsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.customTableViewCellReuseIdentifier) as? CustomTableViewCell else { return UITableViewCell() }
-        cell.configure(image: UIImage(named: myGroupsArray[indexPath.row]), name: myGroupsArray[indexPath.row], description: nil)
+        cell.configure(image: UIImage(named: StorageSingleton.share.myGroupsArray[indexPath.row]),
+                       name: StorageSingleton.share.myGroupsArray[indexPath.row],
+                       description: nil)
         return cell
     }
     
