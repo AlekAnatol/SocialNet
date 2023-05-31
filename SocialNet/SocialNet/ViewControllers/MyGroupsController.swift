@@ -78,9 +78,7 @@ extension MyGroupsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.customTableViewCellReuseIdentifier) as? CustomTableViewCell else { return UITableViewCell() }
-        cell.configure(image: UIImage(named: StorageSingleton.share.myGroupsArray[indexPath.row]),
-                       name: StorageSingleton.share.myGroupsArray[indexPath.row],
-                       description: nil)
+        cell.configure(group: StorageSingleton.share.myGroupsArray[indexPath.row])
         return cell
     }
     
@@ -95,6 +93,11 @@ extension MyGroupsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell else { return }
         print(cell.nameLabel.text ?? "no name")
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        StorageSingleton.share.myGroupsArray.remove(at: indexPath.row)
+        myGroupsTableView.deleteRows(at: [indexPath], with: .fade)
     }
 }
 

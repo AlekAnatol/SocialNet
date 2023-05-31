@@ -13,8 +13,6 @@ class MyFriendsController: UIViewController {
     
     private var myFriendsTableView = UITableView()
     private var searchBar = UISearchBar()
-    private var myFriendsArray = [String]()
-    private let myFriendsSourceArray = ["Andrey", "Boris", "Vlad", "Vladimir", "Galina", "Evgenia", "Evgen"]
 
     //MARK: -  Lyfe cycle
     
@@ -33,7 +31,7 @@ class MyFriendsController: UIViewController {
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(tapOutOfSearchBar))
         recognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(recognizer)
-        myFriendsArray = myFriendsSourceArray
+        StorageSingleton.share.myFriendsArray = StorageSingleton.share.myFriendsSource
         setUpView()
     }
     
@@ -69,7 +67,6 @@ class MyFriendsController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             searchBar.leftAnchor.constraint(equalTo: view.leftAnchor),
             searchBar.rightAnchor.constraint(equalTo: view.rightAnchor),
@@ -105,16 +102,12 @@ class MyFriendsController: UIViewController {
 
 extension MyFriendsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myFriendsArray.count
+        return StorageSingleton.share.myFriendsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.customTableViewCellReuseIdentifier) as? CustomTableViewCell else { return UITableViewCell() }
-        if indexPath.row % 2 == 0 {
-            cell.configure(image: UIImage(named: "lynx"), name: myFriendsArray[indexPath.row], description: "Wild animal")
-        } else {
-            cell.configure(image: UIImage(named: "cat"), name: myFriendsArray[indexPath.row], description: "Home animal")
-        }
+        cell.configure(friend: StorageSingleton.share.myFriendsArray[indexPath.row])
         return cell
     }
     
@@ -138,10 +131,10 @@ extension MyFriendsController: UITableViewDelegate {
 extension MyFriendsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            myFriendsArray = myFriendsSourceArray
+            StorageSingleton.share.myFriendsArray = StorageSingleton.share.myFriendsSource
         } else {
-            myFriendsArray = myFriendsSourceArray.filter({ myFriendsSourceItem in
-                myFriendsSourceItem.lowercased().contains(searchText.lowercased())
+            StorageSingleton.share.myFriendsArray = StorageSingleton.share.myFriendsSource.filter({ myFriendsSourceItem in
+                myFriendsSourceItem.name.lowercased().contains(searchText.lowercased())
             })
         }
         myFriendsTableView.reloadData()

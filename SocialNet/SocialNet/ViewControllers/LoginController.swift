@@ -111,6 +111,7 @@ class LoginController: UIViewController {
         createScrollView()
         addSubviews()
         setupConstraints()
+        fillDataInStorage()
     }
     
     private func createScrollView() {
@@ -173,6 +174,22 @@ class LoginController: UIViewController {
         var customHeight = CGFloat()
         loginButtonFrameBottomY > frameHeight ? (customHeight = loginButtonFrameBottomY) : (customHeight = frameHeight)
         scrollView.contentSize = CGSize(width: view.frame.width, height: customHeight)
+    }
+    
+    private func fillDataInStorage() {
+        let group1 = Group(name:  "tiny tigers", avatar:  "tigers", description:  "tigers")
+        let group2 = Group(name: "pussy cats", avatar: "cats", description: "cats")
+        let group3 = Group(name: "little goats", avatar: "goats", description: "goats")
+        StorageSingleton.share.allGroupsArray.append(group1)
+        StorageSingleton.share.allGroupsArray.append(group2)
+        StorageSingleton.share.allGroupsArray.append(group3)
+        
+        let friend1 = Friend(name: "Anna", avatar: "Anna", fotos: ["1", "2", "3", "4"])
+        let friend2 = Friend(name: "Galina", avatar: "Galina", fotos: ["5", "6", "7"])
+        let friend3 = Friend(name: "Ruslana", avatar: "Ruslana", fotos: ["1", "2"])
+        StorageSingleton.share.myFriendsSource.append(friend1)
+        StorageSingleton.share.myFriendsSource.append(friend2)
+        StorageSingleton.share.myFriendsSource.append(friend3)
     }
     
     //MARK: -  Actions

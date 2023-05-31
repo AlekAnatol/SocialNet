@@ -31,4 +31,16 @@ class CustomTableViewCell: UITableViewCell {
         nameLabel.text = name
         descriptionLabel.text = description
     }
+    
+    func configure(friend: Friend) {
+        nameLabel.text = friend.name
+        mainImageView.image = UIImage(named: friend.avatar)
+        descriptionLabel.text = String()
+    }
+    
+    func configure(group: Group) {
+        mainImageView.image = UIImage(named: group.avatar)
+        nameLabel.text = group.name
+        descriptionLabel.text = group.description
+    }
 }

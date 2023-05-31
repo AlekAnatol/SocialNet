@@ -59,9 +59,7 @@ extension AllGroupsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.customTableViewCellReuseIdentifier) as? CustomTableViewCell else { return UITableViewCell() }
-        cell.configure(image: UIImage(named: StorageSingleton.share.allGroupsArray[indexPath.row]),
-                       name: StorageSingleton.share.allGroupsArray[indexPath.row],
-                       description: "little \(StorageSingleton.share.allGroupsArray[indexPath.row])")
+        cell.configure(group: StorageSingleton.share.allGroupsArray[indexPath.row])
         return cell
     }
     
@@ -74,8 +72,6 @@ extension AllGroupsController: UITableViewDataSource {
 
 extension AllGroupsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if !StorageSingleton.share.myGroupsArray.contains(StorageSingleton.share.allGroupsArray[indexPath.row]) {
-            StorageSingleton.share.myGroupsArray.append(StorageSingleton.share.allGroupsArray[indexPath.row])
-        }
+        StorageSingleton.share.addGroupToMyGroups(group: StorageSingleton.share.allGroupsArray[indexPath.row])
     }
 }

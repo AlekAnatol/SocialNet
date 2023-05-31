@@ -22,6 +22,8 @@
 		9995C5A52A1A579300D5849E /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9995C5A32A1A579300D5849E /* CustomTableViewCell.xib */; };
 		99ECC8EC2A1BDB5F0032C32B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8EB2A1BDB5F0032C32B /* Constants.swift */; };
 		99ECC8EE2A267CAB0032C32B /* StorageSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */; };
+		99ECC8F22A27B5DD0032C32B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8F12A27B5DD0032C32B /* Friend.swift */; };
+		99ECC8F42A27B5EE0032C32B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8F32A27B5EE0032C32B /* Group.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		9995C5A32A1A579300D5849E /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		99ECC8EB2A1BDB5F0032C32B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSingleton.swift; sourceTree = "<group>"; };
+		99ECC8F12A27B5DD0032C32B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		99ECC8F32A27B5EE0032C32B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +81,8 @@
 				9914B39829E8417300E03F81 /* Core */,
 				9914B39929E8418400E03F81 /* ViewControllers */,
 				9995C5A72A1A57B800D5849E /* CustomTableViewCell */,
-				99ECC8EB2A1BDB5F0032C32B /* Constants.swift */,
-				99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */,
+				99ECC8EF2A27B5860032C32B /* Model */,
+				99ECC8F02A27B5990032C32B /* Helpers */,
 				9914B37F29E83F7100E03F81 /* Main.storyboard */,
 				9914B38529E83F7300E03F81 /* Assets.xcassets */,
 				9914B38729E83F7300E03F81 /* LaunchScreen.storyboard */,
@@ -116,6 +120,24 @@
 				9995C5A32A1A579300D5849E /* CustomTableViewCell.xib */,
 			);
 			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		99ECC8EF2A27B5860032C32B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99ECC8F12A27B5DD0032C32B /* Friend.swift */,
+				99ECC8F32A27B5EE0032C32B /* Group.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99ECC8F02A27B5990032C32B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				99ECC8EB2A1BDB5F0032C32B /* Constants.swift */,
+				99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,8 +215,10 @@
 				9995C5A42A1A579300D5849E /* CustomTableViewCell.swift in Sources */,
 				9914B39729E840D200E03F81 /* AllGroupsController.swift in Sources */,
 				9914B39329E8402400E03F81 /* GalleryController.swift in Sources */,
+				99ECC8F22A27B5DD0032C32B /* Friend.swift in Sources */,
 				9914B39529E8404500E03F81 /* MyGroupsController.swift in Sources */,
 				9914B38429E83F7100E03F81 /* SocialNet.xcdatamodeld in Sources */,
+				99ECC8F42A27B5EE0032C32B /* Group.swift in Sources */,
 				99ECC8EE2A267CAB0032C32B /* StorageSingleton.swift in Sources */,
 				99ECC8EC2A1BDB5F0032C32B /* Constants.swift in Sources */,
 				9914B39129E8400100E03F81 /* MyFriendsController.swift in Sources */,
