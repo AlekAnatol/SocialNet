@@ -24,6 +24,9 @@
 		99ECC8EE2A267CAB0032C32B /* StorageSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */; };
 		99ECC8F22A27B5DD0032C32B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8F12A27B5DD0032C32B /* Friend.swift */; };
 		99ECC8F42A27B5EE0032C32B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8F32A27B5EE0032C32B /* Group.swift */; };
+		99ECC8F92A2894CA0032C32B /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8F72A2894CA0032C32B /* CustomCollectionViewCell.swift */; };
+		99ECC8FA2A2894CA0032C32B /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99ECC8F82A2894CA0032C32B /* CustomCollectionViewCell.xib */; };
+		99ECC8FC2A289BB10032C32B /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8FB2A289BB10032C32B /* PhotoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSingleton.swift; sourceTree = "<group>"; };
 		99ECC8F12A27B5DD0032C32B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		99ECC8F32A27B5EE0032C32B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		99ECC8F72A2894CA0032C32B /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		99ECC8F82A2894CA0032C32B /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		99ECC8FB2A289BB10032C32B /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +86,7 @@
 			children = (
 				9914B39829E8417300E03F81 /* Core */,
 				9914B39929E8418400E03F81 /* ViewControllers */,
-				9995C5A72A1A57B800D5849E /* CustomTableViewCell */,
+				99ECC8F52A28929B0032C32B /* Cells */,
 				99ECC8EF2A27B5860032C32B /* Model */,
 				99ECC8F02A27B5990032C32B /* Helpers */,
 				9914B37F29E83F7100E03F81 /* Main.storyboard */,
@@ -107,6 +113,7 @@
 				997BB19829F53D9600A3563C /* LoginController.swift */,
 				9914B39029E8400100E03F81 /* MyFriendsController.swift */,
 				9914B39229E8402400E03F81 /* GalleryController.swift */,
+				99ECC8FB2A289BB10032C32B /* PhotoController.swift */,
 				9914B39429E8404500E03F81 /* MyGroupsController.swift */,
 				9914B39629E840D200E03F81 /* AllGroupsController.swift */,
 			);
@@ -138,6 +145,24 @@
 				99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		99ECC8F52A28929B0032C32B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				99ECC8F62A28948E0032C32B /* CustomCollectionViewCell */,
+				9995C5A72A1A57B800D5849E /* CustomTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		99ECC8F62A28948E0032C32B /* CustomCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				99ECC8F72A2894CA0032C32B /* CustomCollectionViewCell.swift */,
+				99ECC8F82A2894CA0032C32B /* CustomCollectionViewCell.xib */,
+			);
+			path = CustomCollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +226,7 @@
 				9914B38929E83F7300E03F81 /* LaunchScreen.storyboard in Resources */,
 				9914B38629E83F7300E03F81 /* Assets.xcassets in Resources */,
 				9995C5A52A1A579300D5849E /* CustomTableViewCell.xib in Resources */,
+				99ECC8FA2A2894CA0032C32B /* CustomCollectionViewCell.xib in Resources */,
 				9914B38129E83F7100E03F81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,9 +239,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9995C5A42A1A579300D5849E /* CustomTableViewCell.swift in Sources */,
+				99ECC8F92A2894CA0032C32B /* CustomCollectionViewCell.swift in Sources */,
 				9914B39729E840D200E03F81 /* AllGroupsController.swift in Sources */,
 				9914B39329E8402400E03F81 /* GalleryController.swift in Sources */,
 				99ECC8F22A27B5DD0032C32B /* Friend.swift in Sources */,
+				99ECC8FC2A289BB10032C32B /* PhotoController.swift in Sources */,
 				9914B39529E8404500E03F81 /* MyGroupsController.swift in Sources */,
 				9914B38429E83F7100E03F81 /* SocialNet.xcdatamodeld in Sources */,
 				99ECC8F42A27B5EE0032C32B /* Group.swift in Sources */,

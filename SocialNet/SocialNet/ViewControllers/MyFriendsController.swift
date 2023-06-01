@@ -120,8 +120,10 @@ extension MyFriendsController: UITableViewDataSource {
 
 extension MyFriendsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell else { return }
-        print(cell.nameLabel.text ?? "no name")
+        let selectedFriend = StorageSingleton.share.myFriendsArray[indexPath.row]
+        let galleryController = GalleryController()
+        galleryController.configure(photos: selectedFriend.fotos)
+        self.navigationController?.pushViewController(galleryController, animated: true)
     }
 }
 

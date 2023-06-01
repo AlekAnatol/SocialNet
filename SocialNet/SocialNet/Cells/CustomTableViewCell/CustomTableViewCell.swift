@@ -13,11 +13,10 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    static let customTableViewCellReuseIdentifier = "myFriendsCellReuseIdentifier"
+    static let customTableViewCellReuseIdentifier = "customTableViewCellReuseIdentifier"
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     override func prepareForReuse() {

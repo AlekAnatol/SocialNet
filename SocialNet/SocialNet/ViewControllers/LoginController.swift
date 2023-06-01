@@ -184,7 +184,7 @@ class LoginController: UIViewController {
         StorageSingleton.share.allGroupsArray.append(group2)
         StorageSingleton.share.allGroupsArray.append(group3)
         
-        let friend1 = Friend(name: "Anna", avatar: "Anna", fotos: ["1", "2", "3", "4"])
+        let friend1 = Friend(name: "Anna", avatar: "Anna", fotos: ["1", "2", "3", "4", "5", "6", "7"])
         let friend2 = Friend(name: "Galina", avatar: "Galina", fotos: ["5", "6", "7"])
         let friend3 = Friend(name: "Ruslana", avatar: "Ruslana", fotos: ["1", "2"])
         StorageSingleton.share.myFriendsSource.append(friend1)
