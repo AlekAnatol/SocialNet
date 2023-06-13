@@ -12,11 +12,21 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var shadowView: UIView!
     
     static let customTableViewCellReuseIdentifier = "customTableViewCellReuseIdentifier"
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        mainImageView.layer.borderWidth = 2
+        mainImageView.layer.borderColor = UIColor.systemBlue.cgColor
+        mainImageView.layer.cornerRadius = mainImageView.frame.width/3
+        shadowView.layer.cornerRadius = mainImageView.frame.width/3
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowRadius = 8
+        shadowView.layer.shadowOpacity = 0.8
+        shadowView.layer.shadowOffset = CGSize(width: 10, height: 10)
+        
     }
     
     override func prepareForReuse() {

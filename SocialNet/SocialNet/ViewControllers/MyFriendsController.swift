@@ -124,6 +124,7 @@ extension MyFriendsController: UITableViewDelegate {
         let galleryController = GalleryController()
         galleryController.configure(photos: selectedFriend.fotos)
         self.navigationController?.pushViewController(galleryController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

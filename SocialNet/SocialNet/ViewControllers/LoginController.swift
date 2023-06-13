@@ -243,7 +243,7 @@ class LoginController: UIViewController {
         let myFriendsNavigationController = UINavigationController(rootViewController: myFriendsController)
         let myGroupsNavigationController = UINavigationController(rootViewController: myGroupsController)
         tabBarController.setViewControllers([myFriendsNavigationController, myGroupsNavigationController], animated: false)
-        tabBarController.tabBar.tintColor = .blue
+        tabBarController.tabBar.tintColor = .systemBlue
         tabBarController.tabBar.backgroundColor = .white
         //tabBarController.selectedIndex = 1
         guard let items = tabBarController.tabBar.items else {
