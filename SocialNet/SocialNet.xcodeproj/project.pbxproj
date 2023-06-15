@@ -20,6 +20,8 @@
 		997BB19929F53D9600A3563C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997BB19829F53D9600A3563C /* LoginController.swift */; };
 		9995C5A42A1A579300D5849E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9995C5A22A1A579200D5849E /* CustomTableViewCell.swift */; };
 		9995C5A52A1A579300D5849E /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9995C5A32A1A579300D5849E /* CustomTableViewCell.xib */; };
+		99DEE8D52A3A44C4002264D5 /* LikesCounterControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DEE8D42A3A44C4002264D5 /* LikesCounterControlView.swift */; };
+		99DEE8D72A3A4505002264D5 /* LikesCounterControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99DEE8D62A3A4505002264D5 /* LikesCounterControlView.xib */; };
 		99ECC8EC2A1BDB5F0032C32B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8EB2A1BDB5F0032C32B /* Constants.swift */; };
 		99ECC8EE2A267CAB0032C32B /* StorageSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */; };
 		99ECC8F22A27B5DD0032C32B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC8F12A27B5DD0032C32B /* Friend.swift */; };
@@ -45,6 +47,8 @@
 		997BB19829F53D9600A3563C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		9995C5A22A1A579200D5849E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		9995C5A32A1A579300D5849E /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		99DEE8D42A3A44C4002264D5 /* LikesCounterControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCounterControlView.swift; sourceTree = "<group>"; };
+		99DEE8D62A3A4505002264D5 /* LikesCounterControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikesCounterControlView.xib; sourceTree = "<group>"; };
 		99ECC8EB2A1BDB5F0032C32B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99ECC8ED2A267CAB0032C32B /* StorageSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSingleton.swift; sourceTree = "<group>"; };
 		99ECC8F12A27B5DD0032C32B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
@@ -86,7 +90,7 @@
 			children = (
 				9914B39829E8417300E03F81 /* Core */,
 				9914B39929E8418400E03F81 /* ViewControllers */,
-				99ECC8F52A28929B0032C32B /* Cells */,
+				99DEE8D22A3A4448002264D5 /* CustomElements */,
 				99ECC8EF2A27B5860032C32B /* Model */,
 				99ECC8F02A27B5990032C32B /* Helpers */,
 				9914B37F29E83F7100E03F81 /* Main.storyboard */,
@@ -127,6 +131,24 @@
 				9995C5A32A1A579300D5849E /* CustomTableViewCell.xib */,
 			);
 			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		99DEE8D22A3A4448002264D5 /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				99DEE8D32A3A4477002264D5 /* LikesControlView */,
+				99ECC8F52A28929B0032C32B /* Cells */,
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		99DEE8D32A3A4477002264D5 /* LikesControlView */ = {
+			isa = PBXGroup;
+			children = (
+				99DEE8D42A3A44C4002264D5 /* LikesCounterControlView.swift */,
+				99DEE8D62A3A4505002264D5 /* LikesCounterControlView.xib */,
+			);
+			path = LikesControlView;
 			sourceTree = "<group>";
 		};
 		99ECC8EF2A27B5860032C32B /* Model */ = {
@@ -223,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99DEE8D72A3A4505002264D5 /* LikesCounterControlView.xib in Resources */,
 				9914B38929E83F7300E03F81 /* LaunchScreen.storyboard in Resources */,
 				9914B38629E83F7300E03F81 /* Assets.xcassets in Resources */,
 				9995C5A52A1A579300D5849E /* CustomTableViewCell.xib in Resources */,
@@ -250,6 +273,7 @@
 				99ECC8EE2A267CAB0032C32B /* StorageSingleton.swift in Sources */,
 				99ECC8EC2A1BDB5F0032C32B /* Constants.swift in Sources */,
 				9914B39129E8400100E03F81 /* MyFriendsController.swift in Sources */,
+				99DEE8D52A3A44C4002264D5 /* LikesCounterControlView.swift in Sources */,
 				997BB19929F53D9600A3563C /* LoginController.swift in Sources */,
 				9914B37A29E83F7100E03F81 /* AppDelegate.swift in Sources */,
 				9914B37C29E83F7100E03F81 /* SceneDelegate.swift in Sources */,

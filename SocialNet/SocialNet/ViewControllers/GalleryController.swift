@@ -61,7 +61,7 @@ class GalleryController: UIViewController {
         return layout
     }
     
-    //MARK: - open functions
+    //MARK: - Open functions
     
     func configure(photos: [String]) {
         self.photosArray = photos
@@ -79,7 +79,7 @@ extension GalleryController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.customCollectionViewCellReuseIdentifier,
                                                             for: indexPath) as? CustomCollectionViewCell
         else { return UICollectionViewCell() }
-        cell.configure(image: photosArray[indexPath.item])
+        cell.configure(image: photosArray[indexPath.item], likeCount: indexPath.item)
         return cell
     }
     
@@ -91,6 +91,8 @@ extension GalleryController: UICollectionViewDataSource {
 extension GalleryController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Selected \(indexPath.item) item")
+        guard let selectedCell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
+        print("Count of likes - \(selectedCell.likesCounterControlView.likesCounter)")
         let photoController = PhotoController()
         photoController.configure(photo: photosArray[indexPath.item])
         self.navigationController?.pushViewController(photoController, animated: true)
