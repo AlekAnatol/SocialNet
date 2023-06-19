@@ -82,8 +82,6 @@ extension GalleryController: UICollectionViewDataSource {
         cell.configure(image: photosArray[indexPath.item], likeCount: indexPath.item)
         return cell
     }
-    
-    
 }
 
 //MARK: - UICollectionViewDelegate

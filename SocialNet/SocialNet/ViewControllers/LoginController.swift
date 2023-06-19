@@ -20,6 +20,11 @@ class LoginController: UIViewController {
     private var passwordTextField = UITextField()
     private var loginButton = UIButton()
     
+    // Views for loading animation
+    private var firstCircleView = UIView()
+    private var secondCircleView = UIView()
+    private var thirdCircleView = UIView()
+    
     //MARK: -  Lyfe cycle
     
     override func viewDidLoad() {
@@ -107,7 +112,32 @@ class LoginController: UIViewController {
             button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
             return button
         }()
-
+        
+        firstCircleView = {
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .systemBlue
+            view.layer.cornerRadius = 20
+            return view
+        }()
+        
+        secondCircleView = {
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .systemBlue
+            view.layer.cornerRadius = 20
+            view.alpha = 0.5
+            return view
+        }()
+        
+        thirdCircleView = {
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .systemBlue
+            view.layer.cornerRadius = 20
+            view.alpha = 0
+            return view
+        }()
         createScrollView()
         addSubviews()
         setupConstraints()
@@ -221,8 +251,8 @@ class LoginController: UIViewController {
             print("no login/password data")
             return
         }
-        //checkLoginPassword(login, password) ? transitionToNextViewController() : showAlertController()
-        transitionToNextViewController()
+        //checkLoginPassword(login, password) ? animateTransitionToNextViewController() : showAlertController()
+        animateTransitionToNextViewController()
     }
     
     // MARK: - Private functions
@@ -265,5 +295,76 @@ class LoginController: UIViewController {
         let alertAction = UIAlertAction(title: "Ok", style: .cancel)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true)
+    }
+    
+    private func animateTransitionToNextViewController() {
+        hideAllViews()
+        addCircleViews()
+        setUpCircleViews()
+        animateCircleViews(totalCount: 3)
+    }
+    
+    private func hideAllViews() {
+        scrollView.isHidden = true
+        netImageView.isHidden = true
+        netLabel.isHidden = true
+        loginLabel.isHidden = true
+        loginTextField.isHidden = true
+        passwordLabel.isHidden = true
+        passwordTextField.isHidden = true
+        loginButton.isHidden = true
+    }
+    
+    private func addCircleViews() {
+        view.addSubview(firstCircleView)
+        view.addSubview(secondCircleView)
+        view.addSubview(thirdCircleView)
+    }
+
+    private func setUpCircleViews() {
+        NSLayoutConstraint.activate([
+            secondCircleView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            secondCircleView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            secondCircleView.heightAnchor.constraint(equalToConstant: 40),
+            secondCircleView.widthAnchor.constraint(equalToConstant: 40),
+            
+            firstCircleView.centerXAnchor.constraint(equalTo: secondCircleView.centerXAnchor, constant: -80),
+            firstCircleView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            firstCircleView.heightAnchor.constraint(equalToConstant: 40),
+            firstCircleView.widthAnchor.constraint(equalToConstant: 40),
+            
+            thirdCircleView.centerXAnchor.constraint(equalTo: secondCircleView.centerXAnchor, constant: 80),
+            thirdCircleView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            thirdCircleView.heightAnchor.constraint(equalToConstant: 40),
+            thirdCircleView.widthAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    private func  animateCircleViews(totalCount: Int, currentCount: Int = 0) {
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.firstCircleView.alpha = 1
+            self?.secondCircleView.alpha = 0.5
+            self?.thirdCircleView.alpha = 0
+        } completion: { [weak self] _ in
+            UIView.animate(withDuration: 0.3) {
+                self?.firstCircleView.alpha = 0.5
+                self?.secondCircleView.alpha = 1
+                self?.thirdCircleView.alpha = 0.5
+            } completion: { [weak self] _ in
+                UIView.animate(withDuration: 0.3) {
+                    self?.firstCircleView.alpha = 0
+                    self?.secondCircleView.alpha = 0.5
+                    self?.thirdCircleView.alpha = 1
+                } completion: { [weak self] _ in
+                    UIView.animate(withDuration: 0.3) {
+                        self?.firstCircleView.alpha = 0.5
+                        self?.secondCircleView.alpha = 0
+                        self?.thirdCircleView.alpha = 0.5
+                    } completion: { [weak self] _ in
+                        currentCount == totalCount ? self?.transitionToNextViewController() : self?.animateCircleViews(totalCount: totalCount, currentCount: currentCount + 1)
+                    }
+                }
+            }
+        }
     }
 }
