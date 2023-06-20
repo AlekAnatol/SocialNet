@@ -91,9 +91,8 @@ extension MyGroupsController: UITableViewDataSource {
 
 extension MyGroupsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell else { return }
+        print("In my groups did select \(indexPath.row)")
         tableView.deselectRow(at: indexPath, animated: true)
-        print(cell.nameLabel.text ?? "no name")
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

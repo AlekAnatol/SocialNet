@@ -26,7 +26,11 @@ class CustomTableViewCell: UITableViewCell {
         shadowView.layer.shadowRadius = 8
         shadowView.layer.shadowOpacity = 0.8
         shadowView.layer.shadowOffset = CGSize(width: 10, height: 10)
-        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(mainImageViewTaped))
+        recognizer.cancelsTouchesInView = true
+        mainImageView.addGestureRecognizer(recognizer)
+        mainImageView.isUserInteractionEnabled = true
+        mainImageView.becomeFirstResponder()
     }
     
     override func prepareForReuse() {
@@ -51,5 +55,22 @@ class CustomTableViewCell: UITableViewCell {
         mainImageView.image = UIImage(named: group.avatar)
         nameLabel.text = group.name
         descriptionLabel.text = group.description
+    }
+    
+    @objc private func mainImageViewTaped() {
+        print("mainImageViewTaped")
+        let scale = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        mainImageView.transform = scale
+        shadowView.transform = scale
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       usingSpringWithDamping: 100,
+                       initialSpringVelocity: 50,
+                       options: [.autoreverse],
+                       animations: {[weak self] in
+            self?.mainImageView.transform = .identity
+            self?.shadowView.transform = .identity
+        },
+                       completion: nil)
     }
 }

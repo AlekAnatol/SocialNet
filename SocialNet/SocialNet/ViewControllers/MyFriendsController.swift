@@ -119,15 +119,14 @@ extension MyFriendsController: UITableViewDataSource {
 // MARK: - extension UITableViewDelegate
 
 extension MyFriendsController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedFriend = StorageSingleton.share.myFriendsArray[indexPath.row]
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)  {
+        print("didSelectRowAt")
         let galleryController = GalleryController()
-        galleryController.configure(photos: selectedFriend.fotos)
+        galleryController.configure(photos: StorageSingleton.share.myFriendsArray[indexPath.row].fotos)
         self.navigationController?.pushViewController(galleryController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
-
 
 // MARK: - extension UISearcBarDelegate
 

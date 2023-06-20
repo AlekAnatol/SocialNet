@@ -252,7 +252,8 @@ class LoginController: UIViewController {
             return
         }
         //checkLoginPassword(login, password) ? animateTransitionToNextViewController() : showAlertController()
-        animateTransitionToNextViewController()
+        //animateTransitionToNextViewController()
+        transitionToNextViewController()
     }
     
     // MARK: - Private functions

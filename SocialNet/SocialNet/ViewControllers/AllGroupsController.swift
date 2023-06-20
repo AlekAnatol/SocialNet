@@ -72,7 +72,8 @@ extension AllGroupsController: UITableViewDataSource {
 
 extension AllGroupsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        StorageSingleton.share.addGroupToMyGroups(group: StorageSingleton.share.allGroupsArray[indexPath.row])
+        StorageSingleton.share.addGroupToMyGroups(group:
+                                                    StorageSingleton.share.allGroupsArray[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
