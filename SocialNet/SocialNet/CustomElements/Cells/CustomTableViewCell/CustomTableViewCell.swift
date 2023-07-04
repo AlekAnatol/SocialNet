@@ -15,6 +15,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var shadowView: UIView!
     
     static let customTableViewCellReuseIdentifier = "customTableViewCellReuseIdentifier"
+    private var completion: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +38,7 @@ class CustomTableViewCell: UITableViewCell {
         mainImageView.image = nil
         nameLabel.text = nil
         descriptionLabel.text = nil
+        completion = nil
     }
     
     func configure(image: UIImage?, name: String?, description: String?) {
@@ -45,16 +47,18 @@ class CustomTableViewCell: UITableViewCell {
         descriptionLabel.text = description
     }
     
-    func configure(friend: Friend) {
+    func configure(friend: Friend, completion: @escaping () -> Void) {
         nameLabel.text = friend.name
         mainImageView.image = UIImage(named: friend.avatar)
         descriptionLabel.text = String()
+        self.completion = completion
     }
     
-    func configure(group: Group) {
+    func configure(group: Group, completion: @escaping () -> Void) {
         mainImageView.image = UIImage(named: group.avatar)
         nameLabel.text = group.name
         descriptionLabel.text = group.description
+        self.completion = completion
     }
     
     @objc private func mainImageViewTaped() {
@@ -64,13 +68,15 @@ class CustomTableViewCell: UITableViewCell {
         shadowView.transform = scale
         UIView.animate(withDuration: 1,
                        delay: 0,
-                       usingSpringWithDamping: 100,
-                       initialSpringVelocity: 50,
-                       options: [.autoreverse],
+                       usingSpringWithDamping: 50,
+                       initialSpringVelocity: 30,
+                       //options: nil, //[.autoreverse],
                        animations: {[weak self] in
             self?.mainImageView.transform = .identity
             self?.shadowView.transform = .identity
         },
-                       completion: nil)
+                       completion: {[weak self] _ in
+            self?.completion?()
+        })
     }
 }

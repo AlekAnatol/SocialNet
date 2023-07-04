@@ -58,11 +58,17 @@ extension AllGroupsController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.customTableViewCellReuseIdentifier) as? CustomTableViewCell else { return UITableViewCell() }
-        cell.configure(group: StorageSingleton.share.allGroupsArray[indexPath.row])
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.customTableViewCellReuseIdentifier) as? CustomTableViewCell else
+        { return UITableViewCell() }
+        print("By main image did select \(indexPath.row)")
+        cell.configure(group: StorageSingleton.share.allGroupsArray[indexPath.row]) { 
+            StorageSingleton.share.addGroupToMyGroups(group:
+                                                        StorageSingleton.share.allGroupsArray[indexPath.row])
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return heightForCellTableView
     }
@@ -72,6 +78,7 @@ extension AllGroupsController: UITableViewDataSource {
 
 extension AllGroupsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("In all groups did select \(indexPath.row)")
         StorageSingleton.share.addGroupToMyGroups(group:
                                                     StorageSingleton.share.allGroupsArray[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)

@@ -107,7 +107,14 @@ extension MyFriendsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.customTableViewCellReuseIdentifier) as? CustomTableViewCell else { return UITableViewCell() }
-        cell.configure(friend: StorageSingleton.share.myFriendsArray[indexPath.row])
+        cell.configure(friend: StorageSingleton.share.myFriendsArray[indexPath.row]) {[weak self] in
+            guard let self = self else { return }
+            print("By main image did select friend")
+            let galleryController = GalleryController()
+            galleryController.configure(photos: StorageSingleton.share.myFriendsArray[indexPath.row].fotos)
+            self.navigationController?.pushViewController(galleryController, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
         return cell
     }
     
@@ -120,7 +127,7 @@ extension MyFriendsController: UITableViewDataSource {
 
 extension MyFriendsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)  {
-        print("didSelectRowAt")
+        print("didSelect friend ")
         let galleryController = GalleryController()
         galleryController.configure(photos: StorageSingleton.share.myFriendsArray[indexPath.row].fotos)
         self.navigationController?.pushViewController(galleryController, animated: true)

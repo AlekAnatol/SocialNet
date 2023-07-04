@@ -78,7 +78,10 @@ extension MyGroupsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.customTableViewCellReuseIdentifier) as? CustomTableViewCell else { return UITableViewCell() }
-        cell.configure(group: StorageSingleton.share.myGroupsArray[indexPath.row])
+        cell.configure(group: StorageSingleton.share.myGroupsArray[indexPath.row]) { 
+            print("By main image did select \(indexPath.row)")
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
         return cell
     }
     
