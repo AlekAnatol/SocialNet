@@ -92,7 +92,12 @@ extension GalleryController: UICollectionViewDelegate {
         guard let selectedCell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell else { return }
         print("Count of likes - \(selectedCell.likesCounterControlView.likesCounter)")
         let photoController = PhotoController()
-        photoController.configure(photo: photosArray[indexPath.item])
+        var images = [UIImage]()
+        for item in photosArray {
+            guard let image = UIImage(named: item) else { continue }
+            images.append(image)
+        }
+        photoController.configure(images: images, index: indexPath.item)
         self.navigationController?.pushViewController(photoController, animated: true)
     }
 }

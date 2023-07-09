@@ -79,4 +79,23 @@ class CustomTableViewCell: UITableViewCell {
             self?.completion?()
         })
     }
+    
+    func animate() {
+        self.mainImageView.alpha = 0
+        self.frame.origin.x += 400
+        
+        UIView.animate(withDuration: 0.3,
+                       delay: 0.15,
+                       options: [],
+                       animations: {
+            self.mainImageView.alpha = 1
+        })
+        
+        UIView.animate(withDuration: 0.7,
+                       delay: 0.1,
+                       options: [],
+                       animations: {
+            self.frame.origin.x = 0
+        })
+    }
 }
