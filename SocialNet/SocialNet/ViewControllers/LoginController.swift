@@ -268,11 +268,11 @@ class LoginController: UIViewController {
     }
     
     private func transitionToNextViewController() {
-        let tabBarController = UITabBarController()
+        let tabBarController = CustomTabbarController()
         let myFriendsController = MyFriendsController()
         let myGroupsController = MyGroupsController()
-        let myFriendsNavigationController = UINavigationController(rootViewController: myFriendsController)
-        let myGroupsNavigationController = UINavigationController(rootViewController: myGroupsController)
+        let myFriendsNavigationController = CustomNavigationController(rootViewController: myFriendsController)
+        let myGroupsNavigationController = CustomNavigationController(rootViewController: myGroupsController)
         tabBarController.setViewControllers([myFriendsNavigationController, myGroupsNavigationController], animated: false)
         tabBarController.tabBar.tintColor = .systemBlue
         tabBarController.tabBar.backgroundColor = .white
@@ -285,7 +285,7 @@ class LoginController: UIViewController {
         items[0].title = "My Friends"
         items[1].title = "My Groups"
         tabBarController.modalPresentationStyle = .fullScreen
-        tabBarController.modalTransitionStyle = .crossDissolve
+        //tabBarController.modalTransitionStyle = .crossDissolve
         present(tabBarController, animated: true)
     }
     
