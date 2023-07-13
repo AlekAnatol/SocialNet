@@ -6,7 +6,5 @@
 //
 
 import CoreGraphics
-import Foundation
 
 let heightForCellTableView: CGFloat = 120
-let addGroupFromAllGroupsNotification = NSNotification.Name("addGroupFromAllGroupsNotification")
